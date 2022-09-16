@@ -20853,12 +20853,21 @@ div.tagsinput {
 .doctor-list{
     padding-bottom: 20px;
     font-size: 35px;
+
 }
 .table th img, .jsgrid .jsgrid-table th img, .table td img, .jsgrid .jsgrid-table td img
 {
     width: 50px;
     height: 50px;
 
+
 }
 
 
+.table th, .jsgrid .jsgrid-table th, .table td, .jsgrid .jsgrid-table td{
+    white-space:pre-wrap;
+}
+
+.siging{
+  width:100%;
+}

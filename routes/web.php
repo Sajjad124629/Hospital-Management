@@ -88,6 +88,16 @@ Route::get('/news',[AdminController::class,'news']);
 
 Route::post('/news_post',[AdminController::class,'news_post']);
 
+//post List
+
+
+Route::get('/post_list',[AdminController::class,'post_list']);
+
+
+//post edit
+
+Route::get('/postedit/{id}',[AdminController::class,'postedit']);
+
 
 
 

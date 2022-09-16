@@ -168,7 +168,7 @@ public function cancel($id){
         }
         else{
             return redirect('/login');
-            
+
         }
 
     }
@@ -200,6 +200,33 @@ public function cancel($id){
         return redirect()->back()->with('success','Post Add SuccessFull');
     }
 
+
+    public function post_list(){
+        if(Auth::id()){
+            if(Auth::user()->usertype==1){
+
+                $postdata = News::all();
+
+                return view('admin.post_list',['postdata'=>$postdata]);
+            }
+            else{
+                return redirect()->back();
+            }
+        }
+        else{
+            return redirect('/login');
+        }
+
+    }
+
+    public function postedit($id){
+
+        $postedit = News::find($id);
+
+        return view('admin.editpost',['postedit'=>$postedit]);
+
+
+    }
 
 
 }

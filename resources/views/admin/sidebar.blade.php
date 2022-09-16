@@ -91,5 +91,13 @@
           <span class="menu-title">Post Section</span>
         </a>
      </li>
+     <li class="nav-item menu-items">
+        <a class="nav-link" href="/post_list">
+          <span class="menu-icon">
+            <i class="mdi mdi-file-document-box"></i>
+          </span>
+          <span class="menu-title">Post List</span>
+        </a>
+     </li>
     </ul>
   </nav>
