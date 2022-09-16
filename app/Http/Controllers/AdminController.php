@@ -228,5 +228,43 @@ public function cancel($id){
 
     }
 
+    public function updatepost(Request $request,$id){
+
+        $updatepost = News::find($id);
+
+        $updatepost->newstitle = $request->newstitle;
+        $updatepost->postcategory = $request->postcategory;
+        $updatepost->postby = $request->postby;
+        $updatepost->newstype = $request->newstype;
+        $updatepost->date = $request->date;
+
+        //update Thumnail Image
+
+        $thumbnailimage = $request->thumnail;
+        $thumbnailimagename=time().'.'.$thumbnailimage->getClientoriginalExtension();
+        $request->thumnail->move('postthumbnail',$thumbnailimagename);
+        $updatepost->thumnail=$thumbnailimagename;
+
+
+
+        //update Admin Image
+
+
+        $adminimage = $request->adminimage;
+        $adminimagename=time().'.'.$adminimage->getClientoriginalExtension();
+        $request->adminimage->move('adminimage',$adminimagename);
+        $updatepost->adminimage=$adminimagename;
+
+
+        //save this File
+
+        $updatepost->save();
+
+        return redirect('/post_list')->with('success','Update Successfull');
+
+
+
+    }
+
 
 }

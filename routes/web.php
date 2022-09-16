@@ -99,6 +99,14 @@ Route::get('/post_list',[AdminController::class,'post_list']);
 Route::get('/postedit/{id}',[AdminController::class,'postedit']);
 
 
+//Update Post
+
+Route::put('/updatepost/{id}',[AdminController::class,'updatepost']);
+
+
+
+
+
 
 
 

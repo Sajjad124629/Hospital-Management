@@ -21,8 +21,9 @@
 
 
 
-                <form action="" method="POST" enctype="multipart/form-data" class="needs-validation pb-3" style="width: 45%" novalidate>
+                <form action="/updatepost/{{$postedit->id}}" method="POST" enctype="multipart/form-data" class="needs-validation pb-3" style="width: 45%" novalidate>
                    @csrf
+                   @method('put')
                     <div class="form-group">
                     <label for="name">News Title:</label>
                     <input type="text" value="{{$postedit->newstitle}}" class="form-control bg-transparent text-white" id="name" placeholder="Enter News Title" name="newstitle" required>

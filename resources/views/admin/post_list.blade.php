@@ -21,6 +21,19 @@
 
                     <div class="container-fluid page-body-wrapper">
 
+                        @if (session()->has('success'))
+
+                        <div class="bg-info p-4 alert alert-success" role="alert"  style="    width: 50%;
+
+                        top: 32px;
+                        position: fixed;
+
+                        margin-top: 52px;
+                        padding-top: 20px;">    <strong> {{session()->get('success')}}</strong></div>
+
+
+                            @endif
+
 
 
             <div class="container pt-5">
@@ -29,7 +42,7 @@
                 <table class="table table-striped pt-4 ">
                   <thead>
                     <tr>
-
+                      <th>S.N</th>
                       <th>News Title</th>
                       <th>Post Category</th>
                       <th>Post By</th>
@@ -48,6 +61,7 @@
 
 
                     <tr>
+                       <td>{{$loop->index+1}}</td>
                       <td>{{$postdatas->newstitle}}</td>
                       <td>{{$postdatas->postcategory}}</td>
                       <td>{{$postdatas->postby}}</td>
