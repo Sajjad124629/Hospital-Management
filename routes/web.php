@@ -105,7 +105,9 @@ Route::put('/updatepost/{id}',[AdminController::class,'updatepost']);
 
 
 
+//delete Post data
 
+Route::get('/deletepost/{id}',[AdminController::class,'deletepost']);
 
 
 

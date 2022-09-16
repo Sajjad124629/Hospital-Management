@@ -266,5 +266,11 @@ public function cancel($id){
 
     }
 
+    public function deletepost($id){
+        $deletepost = News::find($id);
+        $deletepost->delete();
+        return redirect('/post_list')->with('delete','Delete Successfull');
+    }
+
 
 }

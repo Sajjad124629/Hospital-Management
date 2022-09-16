@@ -34,6 +34,19 @@
 
                             @endif
 
+                            @if (session()->has('delete'))
+
+                            <div class="bg-info p-4 alert alert-danger" role="alert"  style="    width: 50%;
+
+                            top: 32px;
+                            position: fixed;
+
+                            margin-top: 52px;
+                            padding-top: 20px;">    <strong> {{session()->get('delete')}}</strong></div>
+
+
+                                @endif
+
 
 
             <div class="container pt-5">
@@ -71,7 +84,7 @@
                       <td><img src="adminimage/{{$postdatas->adminimage}}" alt=""></td>
 
                       <td><a href="/postedit/{{$postdatas->id}}" class="btn btn-sm btn-info">Edit</a></td>
-                      <td><a  href="" class="btn btn-sm btn-info">Delete</a></td>
+                      <td><a  href="/deletepost/{{$postdatas->id}}" class="btn btn-sm btn-info">Delete</a></td>
 
                     </tr>
 
