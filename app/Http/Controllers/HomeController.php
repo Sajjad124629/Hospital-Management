@@ -81,5 +81,20 @@ class HomeController extends Controller
     }
 
 
+    public function about(){
+        $doctortdata = Doctor::all();
+        return view('user.about',['doctordata'=>$doctortdata]);
+    }
+
+    public function doctorpage(){
+        $doctortdata = Doctor::all();
+        return view('user.doctorpage',['doctordata'=>$doctortdata]);
+    }
+
+    public function newspage(){
+        $newsdata = News::all();
+        return view('user.newspage',['newsdata'=>$newsdata]);
+    }
+
 
 }

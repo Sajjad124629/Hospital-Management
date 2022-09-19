@@ -273,4 +273,8 @@ public function cancel($id){
     }
 
 
+    public function footer_add(){
+        return view('admin.footer_add');
+    }
+
 }

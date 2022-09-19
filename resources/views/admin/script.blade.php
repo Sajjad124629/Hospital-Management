@@ -16,10 +16,16 @@
     <script src="{{asset('admin')}}/assets/js/misc.js"></script>
     <script src="{{asset('admin')}}/assets/js/settings.js"></script>
     <script src="{{asset('admin')}}/assets/js/todolist.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="{{asset('admin')}}/assets/js/dashboard.js"></script>
@@ -46,3 +52,12 @@
           }, false);
         })();
         </script>
+
+<script>
+    $('#summernote').summernote({
+      placeholder: 'Description',
+      tabsize: 3,
+      height: 400,
+      width:750
+    });
+  </script>

@@ -110,6 +110,21 @@ Route::put('/updatepost/{id}',[AdminController::class,'updatepost']);
 Route::get('/deletepost/{id}',[AdminController::class,'deletepost']);
 
 
+//footer Add
+
+Route::get('/footer_add',[AdminController::class,'footer_add']);
+
+
+
+Route::get('/about',[HomeController::class,'about']);
+
+
+Route::get('/doctorpage',[HomeController::class,'doctorpage']);
+
+Route::get('/newspage',[HomeController::class,'newspage']);
+
+
+
 
 
 

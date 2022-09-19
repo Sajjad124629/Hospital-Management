@@ -2,7 +2,7 @@
 
 <div class="page-section bg-light">
     <div class="container">
-      <h1 class="text-center wow fadeInUp">Latest News</h1>
+      <h1 style="font-size: 2.5rem" class="text-center wow fadeInUp">Latest News</h1>
       <div class="row mt-5">
 
         @foreach ($postdata as $postdatas)

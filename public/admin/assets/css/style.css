@@ -20871,3 +20871,16 @@ div.tagsinput {
 .siging{
   width:100%;
 }
+
+
+.note-btn
+{
+    color: #6c7293;
+    border: none;
+
+}
+.note-btn:hover{
+    background-color: #0f1015;
+    color:white ;
+    border: none;
+}
