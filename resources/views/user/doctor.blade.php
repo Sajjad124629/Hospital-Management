@@ -12,8 +12,8 @@
             <div class="header">
               <img  src="doctorimage/{{$doctros->image}}" alt="">
               <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                <a href="https://globfone.com/call-phone/"><span class="mai-call"></span></a>
+                <a href="https://web.whatsapp.com/"><span class="mai-logo-whatsapp"></span></a>
               </div>
             </div>
             <div class="body">

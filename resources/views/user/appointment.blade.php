@@ -1,6 +1,6 @@
 <div class="page-section">
     <div class="container">
-      <h1 style="font-size: 26px; font-weight: bold;" class="text-center wow fadeInUp">Make an Appointment</h1>
+      <h1 style="font-size: 26px; font-weight: bold;" id="letconsult" class="text-center wow fadeInUp">Make an Appointment</h1>
 
       <form class="main-form " action="/appointment" method="POST">
         @csrf

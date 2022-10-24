@@ -38,7 +38,7 @@
         @endforeach
 
         <div class="col-12 text-center mt-4 wow zoomIn">
-          <a href="blog.html" class="btn btn-primary">Read More</a>
+          <a href="/newspage" class="btn btn-primary">Read More</a>
         </div>
 
       </div>

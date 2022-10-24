@@ -28,6 +28,21 @@ Route::post('/upload_doctor',[AdminController::class,'upload']);
 
 Route::get('/view_doctor_list',[AdminController::class,'doctorlist']);
 
+
+
+//site show
+
+Route::get('/siteshow',[AdminController::class,'siteshow']);
+
+
+//siteContent
+
+Route::get('/siteContent/{id}',[AdminController::class,'siteContent']);
+//update Home Page
+
+Route::put('/updateHomepage/{id}',[AdminController::class,'updateHomepage']);
+
+
 //doctor Edit
 
 Route::get('/doctor_edit/{id}',[AdminController::class,'edit']);
@@ -66,6 +81,10 @@ Route::get('/approved/{id}',[AdminController::class,'approved']);
 //cancel approved
 
 Route::get('/cancel/{id}',[AdminController::class,'cancel']);
+
+//delete appointment
+
+Route::get('/appointmentdelete/{id}',[AdminController::class,'appointmentdelete']);
 
 //send Mail
 
@@ -123,6 +142,12 @@ Route::get('/doctorpage',[HomeController::class,'doctorpage']);
 
 Route::get('/newspage',[HomeController::class,'newspage']);
 
+Route::get('/news_details/{id}',[HomeController::class,'news_details']);
+
+
+//show map
+
+Route::get('/map',[HomeController::class,'map']);
 
 
 

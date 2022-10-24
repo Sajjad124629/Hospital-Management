@@ -57,12 +57,12 @@
       <div class="container">
         <a class="navbar-brand" href="/"><span class="text-primary">One</span>-Health</a>
 
-        <form action="">
+        <form action="#">
           <div class="input-group input-navbar">
             <div class="input-group-prepend">
               <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
             </div>
-            <input type="text" name="search" class="form-control" placeholder="Enter Doctor keyword.." aria-label="Username" aria-describedby="icon-addon1">
+            <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username" aria-describedby="icon-addon1">
           </div>
         </form>
 
@@ -75,10 +75,10 @@
             <li class="nav-item ">
               <a class="nav-link" href="{{url('/')}}">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
               <a class="nav-link" href="/about">About Us</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="/doctorpage">Doctors</a>
             </li>
             <li class="nav-item">
@@ -116,72 +116,73 @@
     </nav>
   </header>
 
-  @if (session()->has('message'))
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>{{session()->get('message')}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  @endif
-
-
   <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
           <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Doctors</li>
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Blog</li>
           </ol>
         </nav>
-        <h1  style="font-size: 2.5rem" class="font-weight-normal">Our Doctors</h1>
+        <h1 class="font-weight-normal">Map</h1>
       </div> <!-- .container -->
     </div> <!-- .banner-section -->
   </div> <!-- .page-banner -->
 
   <div class="page-section">
     <div class="container">
-      <div class="row justify-content-center">
-
-        <div class="col-lg-10 mt-5">
-          <h1 style="font-size: 2.5rem" class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
-          <div class="row justify-content-center">
-            @foreach ($doctordata as $doctordata)
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="row">
 
 
-            <div class="col-md-6 col-lg-4 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="doctorimage/{{$doctordata->image}}" alt="">
-                  <div class="meta">
-                    <a href="https://globfone.com/call-phone/"><span class="mai-call"></span></a>
-                    <a href="https://web.whatsapp.com/"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
+
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.436322591757!2d89.51719031479686!3d22.823341385054295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff9beb3e74242f%3A0xcc38caf4e65ecfe8!2sNUBTK!5e0!3m2!1sen!2sbd!4v1664511039087!5m2!1sen!2sbd" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+
+          </div> <!-- .row -->
+        </div>
+        <div class="col-lg-4">
+          <div class="sidebar">
+            <div class="sidebar-block">
+              <h3 class="sidebar-title">Search</h3>
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                  <button type="submit" class="btn"><span class="icon mai-search"></span></button>
                 </div>
-                <div class="body">
-                  <p class="text-xl mb-0">{{$doctordata->name}}</p>
-                  <span class="text-sm text-grey">{{$doctordata->speciality}}</span>
-                </div>
+              </form>
+            </div>
+
+
+
+
+            <div class="sidebar-block">
+              <h3 class="sidebar-title">Tag Cloud</h3>
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">dish</a>
+                <a href="#" class="tag-cloud-link">menu</a>
+                <a href="#" class="tag-cloud-link">food</a>
+                <a href="#" class="tag-cloud-link">sweet</a>
+                <a href="#" class="tag-cloud-link">tasty</a>
+                <a href="#" class="tag-cloud-link">delicious</a>
+                <a href="#" class="tag-cloud-link">desserts</a>
+                <a href="#" class="tag-cloud-link">drinks</a>
               </div>
             </div>
-            @endforeach
 
-
+            <div class="sidebar-block">
+              <h3 class="sidebar-title">Paragraph</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </div> <!-- .row -->
+    </div> <!-- .container -->
+  </div> <!-- .page-section -->
 
 
-
-
-
-
-
-
-
-
-
-  @include('user.footer')
+@include('user.footer')

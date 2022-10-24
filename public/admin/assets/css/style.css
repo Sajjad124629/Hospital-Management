@@ -20884,3 +20884,29 @@ div.tagsinput {
     color:white ;
     border: none;
 }
+
+.image-wrap img{
+    opacity: 0.5;
+}
+.sitecontent{
+    position: relative;
+    top: -200px;
+}
+.sitecontent p{
+    font-size: 20px;
+}
+.sitecontent h1{
+    font-size: 30px;
+}
+.imagest img{
+    width: 300px;
+    height: 300px;
+}
+.btnst a{
+    width: 170px;
+}
+
+.fancySearchRow input{
+    background-color: #191c24;
+    color: white;
+}

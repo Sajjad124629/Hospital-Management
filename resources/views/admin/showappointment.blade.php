@@ -26,10 +26,10 @@
             <div class="container pt-5">
                 <h2 class="doctor-list">Appointment List:</h2>
 
-                <table class="table table-striped pt-4 ">
+                <table class="table table-striped sampleTable pt-4 ">
                   <thead>
                     <tr>
-                      
+
                       <th>Customer Name</th>
                       <th>Email</th>
                       <th>Phone</th>
@@ -49,7 +49,7 @@
 
 
                     <tr>
-                    
+
                       <td>{{$appointmentDataAll->name}}</td>
                       <td>{{$appointmentDataAll->email}}</td>
                       <td>{{$appointmentDataAll->phone}}</td>
@@ -59,6 +59,7 @@
                       <td>{{$appointmentDataAll->status}}</td>
                       <td><a class="btn btn-success" href="/approved/{{$appointmentDataAll->id}}">Approved</a></td>
                       <td><a class="btn btn-danger" href="/cancel/{{$appointmentDataAll->id}}">Cancel</a></td>
+                      <td><a class="btn btn-danger" href="/appointmentdelete/{{$appointmentDataAll->id}}">Delete</a></td>
                       <td><a class="btn btn-primary" href="/emailview/{{$appointmentDataAll->id}}">Send Mail</a></td>
 
                     </tr>

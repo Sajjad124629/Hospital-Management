@@ -26,6 +26,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery.fancytable/dist/fancyTable.min.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="{{asset('admin')}}/assets/js/dashboard.js"></script>
@@ -61,3 +63,15 @@
       width:750
     });
   </script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".sampleTable").fancyTable({
+            sortColumn:0,
+            pagination: true,
+            perPage:10,
+            globalSearch:true
+        });
+    });
+</script>

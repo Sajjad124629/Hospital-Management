@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Appoinment;
 use App\Models\Doctor;
+use App\Models\Home;
 use App\Models\News;
 use App\Notifications\SendEmailNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Notification;
+
+
+
 
 class AdminController extends Controller
 {
@@ -137,6 +141,12 @@ public function cancel($id){
     return redirect()->back();
 }
 
+public function appointmentdelete($id){
+    $deleteappointment = Appoinment::find($id);
+    $deleteappointment->delete();
+    return redirect()->back();
+}
+
     public function emailview($id){
         $appointment = Appoinment::find($id);
         return view('admin.email_view',['appointment'=>$appointment]);
@@ -180,6 +190,8 @@ public function cancel($id){
         $getnews->postby = $request->postby;
         $getnews->newstype = $request->newstype;
         $getnews->date = $request->date;
+
+        $getnews->details = $request->description;
 
         //thumbnail image
 
@@ -238,6 +250,11 @@ public function cancel($id){
         $updatepost->newstype = $request->newstype;
         $updatepost->date = $request->date;
 
+        $updatepost->details = $request->description;
+
+
+
+
         //update Thumnail Image
 
         $thumbnailimage = $request->thumnail;
@@ -275,6 +292,61 @@ public function cancel($id){
 
     public function footer_add(){
         return view('admin.footer_add');
+    }
+
+
+
+    public function siteshow(){
+        if(Auth::id()){
+            if(Auth::user()->usertype==1){
+                $getdata = Home::all();
+                return view('admin.siteshow',['getdata'=>$getdata[0]]);
+            }
+            else{
+                return redirect()->back();
+            }
+        }
+        else{
+            return redirect('/login');
+        }
+
+
+    }
+
+    public function siteContent($id){
+
+        if(Auth::id()){
+            if(Auth::user()->usertype==1){
+                $getdata = Home::find($id);
+                return view('admin.siteContent',['getdata'=>$getdata]);
+            }
+            else{
+                return redirect()->back();
+            }
+        }
+        else{
+            redirect('/login');
+        }
+
+    }
+
+    public function updateHomepage(Request $request,$id){
+        $getdata = Home::find($id);
+
+        $getdata->homeTitle = $request->title;
+        $getdata->homeCaption = $request->caption;
+        $getdata->homeBodyTitle = $request->bodytitle;
+        $getdata->homeBodydescription = $request->bodydescription;
+
+        //image site
+
+        $bodyimage = $request->file;
+        $bodyimagename=time().'.'.$bodyimage->getClientoriginalExtension();
+        $request->file->move('bodyimage',$bodyimagename);
+        $getdata->homeBodyImage=$bodyimagename;
+
+        $getdata->save();
+        return redirect('/siteshow');
     }
 
 }

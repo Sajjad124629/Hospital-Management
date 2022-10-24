@@ -15,13 +15,13 @@
           @include('admin.navbar')
           <div class="container-fluid page-body-wrapper">
 
-            <div class="container d-flex  justify-content-center align-items-center">
+            <div class="container   d-flex  justify-content-center align-items-center">
 
 
 
 
 
-                <form action="/updatepost/{{$postedit->id}}" method="POST" enctype="multipart/form-data" class="needs-validation pb-3" style="width: 45%" novalidate>
+                <form  action="/updatepost/{{$postedit->id}}" method="POST" enctype="multipart/form-data" class="needs-validation pb-3 " style="width: 45%" novalidate>
                    @csrf
                    @method('put')
                     <div class="form-group">
@@ -59,6 +59,13 @@
                   <div class="form-group">
                     <label for="room">Post Date:</label>
                     <input type="date" value="{{$postedit->date}}" class="form-control bg-transparent text-white" id="room" placeholder="Enter Your Date" name="date" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="comment">Description:</label>
+                    <textarea   style="color: white;height:200px" class="form-control"  name="description" rows="5" id="comment" required>{{$postedit->details}}</textarea>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                   </div>

@@ -6,6 +6,7 @@ use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Home;
 use App\Models\Appoinment;
 use App\Models\News;
 
@@ -14,9 +15,19 @@ class HomeController extends Controller
     public function redirect(){
         if(Auth::id()){
           if(Auth::user()->usertype=='0'){
-            $postdata = News::all();
+            $search = request()->query('search');
+            if($search){
+                $post = News::where('newstitle','Like',"%{$search}%")->simplePaginate(3);
+            }
+
+            else{
+                $post = News::all()->random(3);
+            }
+
+            $postdata = $post;
             $doctor = Doctor::all();
-            return view('user.home',['doctor'=>$doctor,'postdata'=>$postdata]);
+            $homedata = Home::all();
+            return view('user.home',['doctor'=>$doctor,'postdata'=>$postdata,'homedata'=>$homedata[0]]);
           }
           else{
             return view('admin.home');
@@ -26,14 +37,27 @@ class HomeController extends Controller
             return redirect()->back();
         }
     }
-    public function index(){
+    public function index(Request $request){
         if(Auth::id()){
             return redirect('home');
         }
         else{
-            $postdata = News::all();
-        $doctor = Doctor::all();
-        return view('user.home',['doctor'=>$doctor,'postdata'=>$postdata]);
+            $search = request()->query('search');
+            if($search){
+                $post = News::where('newstitle','Like',"%{$search}%")->simplePaginate(3);
+            }
+
+            else{
+                $post = News::all()->random(3);
+            }
+
+
+
+            $postdata =$post;
+            $homedata = Home::all();
+            $doctor = Doctor::all();
+
+        return view('user.home',['doctor'=>$doctor,'postdata'=>$postdata,'homedata'=>$homedata[0]]);
         }
     }
 
@@ -82,19 +106,56 @@ class HomeController extends Controller
 
 
     public function about(){
-        $doctortdata = Doctor::all();
-        return view('user.about',['doctordata'=>$doctortdata]);
+        $search = request()->query('search');
+        if($search){
+            $post = Doctor::where('name','Like',"%{$search}%")->simplePaginate(3);
+        }
+
+        else{
+            $post = Doctor::all()->random(3);
+        }
+        $doctortdata =  $post;
+        $homedata = Home::all();
+        return view('user.about',['doctordata'=>$doctortdata,'homedata'=>$homedata[0]]);
     }
 
     public function doctorpage(){
-        $doctortdata = Doctor::all();
+        $search = request()->query('search');
+        if($search){
+            $post = Doctor::where('name','Like',"%{$search}%")->simplePaginate(3);
+        }
+
+        else{
+            $post = Doctor::all();
+        }
+        $doctortdata = $post;
         return view('user.doctorpage',['doctordata'=>$doctortdata]);
     }
 
     public function newspage(){
-        $newsdata = News::all();
-        return view('user.newspage',['newsdata'=>$newsdata]);
+
+        $search = request()->query('search');
+        if($search){
+            $post = News::where('newstitle','Like',"%{$search}%")->simplePaginate(3);
+        }
+
+        else{
+            $post = News::all();
+        }
+        $newsdata = $post;
+        $newsdatarandom = News::all()->random(3);
+        return view('user.newspage',['newsdata'=>$newsdata,'newsdatarandom'=>$newsdatarandom]);
     }
 
+
+    public  function news_details($id){
+        $getNewsdetails = News::find($id);
+        $newsdatarandom = News::all()->random(3);
+        return view('user.news_details',['newsDetails'=>$getNewsdetails,'newsdatarandomdetails'=>$newsdatarandom]);
+    }
+
+    public function map(){
+        return view('user.map');
+    }
 
 }

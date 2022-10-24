@@ -72,6 +72,12 @@
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                   </div>
+                  <div class="form-group">
+                    <label for="comment">Description:</label>
+                    <textarea  style="color: white; height:200px" class="form-control" name="description" rows="50" id="comment" required></textarea>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
                   <div class="input-group mb-3">
 
                     <div class="custom-file">

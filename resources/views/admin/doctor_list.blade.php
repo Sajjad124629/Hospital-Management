@@ -65,7 +65,7 @@
             <div class="container pt-5">
                 <h2 class="doctor-list">Doctor List:</h2>
 
-                <table class="table table-striped pt-4 ">
+                <table class="table table-striped sampleTable pt-4 ">
                   <thead>
                     <tr>
                       <th>S.N</th>
